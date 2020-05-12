@@ -88,7 +88,7 @@ class App extends Component {
           <div className="skewed"></div>
         </section>
         <Container className="d-none d-sm-block mb-1">
-          <Headlines headlines={this.state.oneDayMostViewedArticles} headlinesLoaded={this.state.oneDayArticlesisLoaded} />
+          <Headlines headlines={this.state.oneDayMostViewedArticles} headlinesLoaded={this.state.oneDayArticlesisLoaded}/>
         </Container>
         <Container className="text-center">
           <MostViewed mostviewed={this.state.sevenDayMostViewedArticles} mostviewedLoaded={this.state.sevenDayArticlesisLoaded}/>
@@ -96,7 +96,7 @@ class App extends Component {
         <Container>
           <SearchResults searchresults={this.state.searchedArticles} searchedArticlesLoaded={this.state.searchedArticlesLoaded} searchCompleted={this.searchCompleted}/>
         </Container>
-        <p className="text-center m-3">Data provided by <a href="https://www.nytimes.com" target="-blank" rel="noreferrer">The New York Times</a></p>
+        <p className="text-center m-3">Data provided by <a href="https://www.nytimes.com" target="_blank" rel="noopener noreferrer">The New York Times</a></p>
       </React.Fragment>
     );
   }

@@ -15,7 +15,7 @@ html p {
 }
 
 .background {
-  background-color:  #9D9E9D;
+  background-color:  #FFF;
   box-shadow: 0 3px 3px rgba(0,0,0,0.2);
   border-radius: 3px;
 }
@@ -28,7 +28,6 @@ html p {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #E6E8E6;
   z-index: -100;
   transform: skewY(8deg);
   transform-origin: top right;
