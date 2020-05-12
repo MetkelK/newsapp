@@ -33,11 +33,13 @@ function SearchResults(props){
 					<CardColumns className="p-3">
 						{searchresults.map(result => (
 							<Card key={result._id} className="p-2 text-center">
+							<a href={result.web_url} target="_blank" rel="noopener noreferrer">
 								{(result.multimedia.length > 0) ? <Card.Img src={"http://www.nytimes.com/" + result.multimedia[0].url} alt="alt" className="p-1"/> : null}
 								<Card.Title className="mb-3">{result.headline.main}</Card.Title>
 					 			<Card.Subtitle className="mb-1">{result.byline.original}</Card.Subtitle>
 					 			<Card.Text className="mb-2">{result.abstract}</Card.Text>
-					 			<Card.Link className="mb-2" href={result.web_url} target="_blank" rel="noopener noreferrer">{result.source}</Card.Link>
+					 			<Card.Text className="mb-2">{result.source}</Card.Text>
+					 		</a>
 							</Card>
 						))}
 					</CardColumns>

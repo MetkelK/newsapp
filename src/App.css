@@ -1,3 +1,11 @@
+html h1, html h2, html h3, html h4, html h5, html h6, html a {
+  font-family: 'Montserrat', sans-serif;
+}
+
+html p {
+  font-family: 'Crimson Text', serif;
+}
+
 .overlay {
 	background-color: #CFD1CF;
 	box-shadow: 0 3px 3px rgba(0,0,0,0.2);
@@ -35,3 +43,6 @@
 	background: #E6E8E6;
 }
 
+.card a:hover {
+  text-decoration: none;
+}

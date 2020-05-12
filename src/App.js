@@ -75,11 +75,11 @@ class App extends Component {
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className="mb-2">
           <Navbar.Brand>The New York Times</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
+          <Navbar.Collapse id="responsive-navbar-nav" className="my-1">
             <Nav className="ml-auto">
               <Form inline onSubmit={this.searchArticles}>
-                <FormControl type="text" placeholder="Search" className="mr-sm-2" name="query" value={this.state.query} onChange={this.handleSearch}/>
-                <Button type="submit" onClick={this.searchArticles}>Submit</Button >
+                <FormControl type="text" placeholder="Find Articles Here" className="mr-sm-2" name="query" value={this.state.query} onChange={this.handleSearch}/>
+                <Button type="submit" onClick={this.searchArticles}>Search</Button >
               </Form>
             </Nav>
           </Navbar.Collapse>
@@ -96,6 +96,7 @@ class App extends Component {
         <Container>
           <SearchResults searchresults={this.state.searchedArticles} searchedArticlesLoaded={this.state.searchedArticlesLoaded} searchCompleted={this.searchCompleted}/>
         </Container>
+        <p className="text-center m-3">Data provided by <a href="https://www.nytimes.com" target="-blank" rel="noreferrer">The New York Times</a></p>
       </React.Fragment>
     );
   }
