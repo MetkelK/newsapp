@@ -7,12 +7,13 @@ import Nav from 'react-bootstrap/Nav';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
-import Headlines from './Components/Headlines';
 import MostViewed from './Components/MostViewed';
 import SearchResults from './Components/SearchResults';
+import TopStories from './Components/TopStories';
 
 const NYT_SEVENDAYVIEW_URL = 'https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?'
 const NYT_ONEDAYVIEW_URL = 'https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?'
+const NYT_TOPSTORIES_URL = 'https://api.nytimes.com/svc/topstories/v2/home.json?'
 const NYT_SEARCH_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q='
 const NYT_API_KEY = 'aqpnJpm3rvYEu7e4nYv4iu3vuvpmXKIe'
 
@@ -24,6 +25,8 @@ class App extends Component {
       sevenDayArticlesisLoaded: false,
       oneDayMostViewedArticles: [],
       oneDayArticlesisLoaded: false,
+      topStoriesArticles : [],
+      topStoriesisLoaded: false,
       searchedArticles: [],
       searchedArticlesLoaded: false,
       query: ''
@@ -45,6 +48,12 @@ class App extends Component {
       .then((res) => res.json())
       .then((res) => {
         this.setState({ oneDayMostViewedArticles: res.results, oneDayArticlesisLoaded: true})
+      })
+      .catch(err => console.log(err));
+    fetch(`${NYT_TOPSTORIES_URL}api-key=${NYT_API_KEY}`)
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({ topStoriesArticles:res.results, topStoriesisLoaded: true })
       })
       .catch(err => console.log(err));
   }
@@ -72,6 +81,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
+
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className="mb-2">
           <Navbar.Brand>The New York Times</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -84,18 +94,19 @@ class App extends Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-        <section>
-          <div className="skewed"></div>
-        </section>
-        <Container className="d-none d-sm-block mb-1">
-          <Headlines headlines={this.state.oneDayMostViewedArticles} headlinesLoaded={this.state.oneDayArticlesisLoaded}/>
-        </Container>
-        <Container className="text-center">
+
+        <div className="headlines d-flex justify-content-center align-items-center" >
+          <TopStories topstories={this.state.topStoriesArticles} topstoriesLoaded={this.state.topStoriesisLoaded}/>
+        </div>
+
+        <div className="p-2 text-center">
           <MostViewed mostviewed={this.state.sevenDayMostViewedArticles} mostviewedLoaded={this.state.sevenDayArticlesisLoaded}/>
-        </Container>
-        <Container>
+        </div>
+
+        <div>
           <SearchResults searchresults={this.state.searchedArticles} searchedArticlesLoaded={this.state.searchedArticlesLoaded} searchCompleted={this.searchCompleted}/>
-        </Container>
+        </div>
+
         <p className="text-center m-3">Data provided by <a href="https://www.nytimes.com" target="_blank" rel="noopener noreferrer">The New York Times</a></p>
       </React.Fragment>
     );

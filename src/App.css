@@ -20,6 +20,15 @@ html p {
   border-radius: 3px;
 }
 
+.headlines {
+  width: 100%;
+  height: 80vh;
+  background-image: url('./ryoji-iwata-a-qsFZimp1M-unsplash.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
 .skewed {
   position: absolute;
   top: 0;
