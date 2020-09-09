@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+/*Material UI Components*/
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
@@ -11,7 +12,10 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import InfoIcon from '@material-ui/icons/Info';
 import Typography from '@material-ui/core/Typography';
 
+/*Material UI Styles*/
 import { makeStyles } from '@material-ui/core/styles';
+
+/*Material UI Media Query*/
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles(theme => ({
@@ -60,6 +64,7 @@ function SearchResults(props){
 	}, [searchedArticlesLoaded])
 
 	const classes = useStyles();
+
 	const matches = useMediaQuery('(min-width:960px)');
 
 	if (searchedArticlesLoaded) {
@@ -93,10 +98,10 @@ function SearchResults(props){
 											title={result.headline.main}
 							              	subtitle={<span>{result.byline.original}</span>}
 							              	actionIcon={
-								                <IconButton aria-label={`info about ${result.title}`} className={classes.icon}>
-								                  <a href={result.web_url} target="_blank" rel="noopener noreferrer"><InfoIcon /></a>
-								                </IconButton>
-							              	}
+								            <IconButton aria-label={`info about ${result.title}`} className={classes.icon}>
+								                <a href={result.web_url} target="_blank" rel="noopener noreferrer"><InfoIcon /></a>
+								            </IconButton>
+							            }
 							            />
 							        </GridListTile>
 								))}

@@ -1,13 +1,16 @@
 import React from 'react';
 
+/*Material UI Components*/
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 
+/*Material UI Styles*/
 import { fade, makeStyles } from '@material-ui/core/styles';
 
+/*Material UI Function*/
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 
 function ElevationScroll(props) {
@@ -39,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 	search: {
 	    position: 'relative',
 	    borderRadius: theme.shape.borderRadius,
-	    backgroundColor: fade(theme.palette.common.white, 0.15),
+	    backgroundColor: 'transparent',
 	    '&:hover': {
 	      backgroundColor: fade(theme.palette.common.white, 0.25),
 	    },
