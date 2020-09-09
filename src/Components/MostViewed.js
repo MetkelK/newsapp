@@ -1,29 +1,64 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card';
-import CardColumns from 'react-bootstrap/CardColumns';
+
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import IconButton from '@material-ui/core/IconButton';
+import InfoIcon from '@material-ui/icons/Info';
+
+import { makeStyles } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
+const useStyles = makeStyles({
+	gridList: {
+    	width: '100%',
+    	height: 'auto',
+    	transform: 'translateZ(0)',
+  	},
+	root: {
+	    display: 'flex',
+	    flexWrap: 'wrap',
+	    justifyContent: 'space-around',
+	    overflow: 'hidden',
+	},
+	icon: {
+    	color: '#FFF',
+  	},
+});
 
 function MostViewed(props) {
 	const { mostviewed, mostviewedLoaded } = props;
 
-	if(mostviewedLoaded){
+	const classes = useStyles();
+	const matches = useMediaQuery('(min-width:960px)');
+
+	if (mostviewedLoaded){
 		return(
-			<React.Fragment>
-				<CardColumns>
-				{mostviewed.map(result => (
-					<Card key={result.id}>
-						<a href={result.url} target="_blank" rel="noopener noreferrer">
-							{(result.media.length > 0) ? <Card.Img className="p-1" src={result.media[0]["media-metadata"][2].url} alt={result.media[0].caption} /> : null}
-							<Card.Body>
-					 			<Card.Title className="mb-3">{result.title}</Card.Title>
-					 			<Card.Subtitle className="mb-1">{result.byline}</Card.Subtitle>
-					 			<Card.Text className="mb-2">{result.abstract}</Card.Text>
-					 			<Card.Text className="mb-2">{result.source}</Card.Text>
-				 			</Card.Body>
-				 		</a>
-			 		</Card>
+			<div className={classes.root}>
+				<GridList cellHeight='auto' className={classes.gridList} >
+					<GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
+          				<ListSubheader component="div" align='center'>Most Viewed Articles of The Week</ListSubheader>
+        			</GridListTile>
+					{mostviewed.map((result, i) => (
+						<GridListTile key={i} cols={matches ? 1 : 2}>
+							{(result.media.length > 0) ? <img 
+								src={result.media[0]["media-metadata"][2].url}
+								alt={result.media[0].caption}
+							/> : null }
+							<GridListTileBar
+								title={result.title}
+				              	subtitle={<span>{result.byline}</span>}
+				              	actionIcon={
+					                <IconButton aria-label={`info about ${result.title}`} className={classes.icon}>
+					                  <a href={result.url} target="_blank" rel="noopener noreferrer"><InfoIcon /></a>
+					                </IconButton>
+				              	}
+				            />
+				        </GridListTile>
 					))}
-				</CardColumns>
-			</React.Fragment>
+				</GridList>
+			</div>
 		);
 	} else {
 		  return null;
