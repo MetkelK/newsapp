@@ -17,8 +17,8 @@ class App extends Component {
 	constructor(props) {
     	super(props);
     	this.state = {
-      		sevenDayMostViewedArticles: [],
-			sevenDayArticlesisLoaded: false,
+      	sevenDayMostViewedArticles: [],
+		    sevenDayArticlesisLoaded: false,
 		    topStoriesArticles : [],
 		    topStoriesisLoaded: false,
 		    searchedArticles: [],
