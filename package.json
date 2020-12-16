@@ -13,7 +13,7 @@
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
     "react-material-ui-carousel": "^1.8.3",
-    "react-scripts": "^3.4.3",
+    "react-scripts": "^4.0.0",
     "react-slick": "^0.27.10"
   },
   "scripts": {
