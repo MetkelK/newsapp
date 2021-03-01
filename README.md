@@ -1,7 +1,12 @@
-﻿A news app that pulls articles from The New York Times api.
+﻿This site was built to pull news articles from various sources using multiple apis.
 
-View live at 
+Currently using the New York Times api. Will add more in the future
+
+View live at
 https://modest-blackwell-d7e99c.netlify.app/
 
-New York Times API 
+Styled With Material-UI
+https://material-ui.com/
+
+New York Times API
 https://developer.nytimes.com/
