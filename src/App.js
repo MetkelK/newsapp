@@ -8,13 +8,16 @@ import TopStories from "./Components/TopStories";
 import Navbar from "./Components/Navbar";
 import Container from "@material-ui/core/Container";
 
-/*New York Times API Endpoints*/
+// New York Times API Endpoints
 const NYT_SEVENDAYVIEW_URL =
   "https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?";
 const NYT_TOPSTORIES_URL =
   "https://api.nytimes.com/svc/topstories/v2/home.json?";
 const NYT_SEARCH_URL =
   "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=";
+
+// GUARDIAN API Endport
+const GUARDIAN_URL = "https://content.guardianapis.com/world?api-key=";
 
 class App extends Component {
   constructor(props) {
@@ -27,6 +30,8 @@ class App extends Component {
       searchedArticles: [],
       searchedArticlesLoaded: false,
       query: "",
+      guardianStories: [],
+      guardianStoriesLoaded: false,
     };
   }
 
@@ -53,6 +58,9 @@ class App extends Component {
         });
       })
       .catch((err) => console.log(err));
+    fetch(`${GUARDIAN_URL}${process.env.REACT_APP_GUARDIAN_API_KEY}`)
+      .then((res) => res.json())
+      .then((res) => console.log(res.response.results));
   }
 
   handleSearch = (e) => {
