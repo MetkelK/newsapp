@@ -27,6 +27,8 @@ class App extends Component {
       searchedArticles: [],
       searchedArticlesLoaded: false,
       query: "",
+      guardianArticles: [],
+      guardianArticlesLoaded: false,
     };
   }
 
