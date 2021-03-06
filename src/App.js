@@ -37,7 +37,7 @@ class App extends Component {
   }
 
   getArticles() {
-    fetch(`${NYT_SEVENDAYVIEW_URL}api-key=${process.env.REACT_APP_NYT_API_KEY}`)
+    fetch(`${NYT_SEVENDAYVIEW_URL}api-key=${process.env.REACT_APP_API_KEY}`)
       .then((res) => res.json())
       .then((res) => {
         this.setState({
@@ -46,7 +46,7 @@ class App extends Component {
         });
       })
       .catch((err) => console.log(err));
-    fetch(`${NYT_TOPSTORIES_URL}api-key=${process.env.REACT_APP_NYT_API_KEY}`)
+    fetch(`${NYT_TOPSTORIES_URL}api-key=${process.env.REACT_APP_API_KEY}`)
       .then((res) => res.json())
       .then((res) => {
         this.setState({
@@ -66,7 +66,7 @@ class App extends Component {
   searchArticles = (e) => {
     e.preventDefault();
     fetch(
-      `${NYT_SEARCH_URL}${this.state.query}&api-key=${process.env.REACT_APP_NYT_API_KEY}`
+      `${NYT_SEARCH_URL}${this.state.query}&api-key=${process.env.REACT_APP_API_KEY}`
     )
       .then((res) => res.json())
       .then((res) => {
