@@ -76,9 +76,10 @@ function TopStories(props) {
       <Container className={classes.root}>
         <Carousel
           autoPlay={true}
-          animation="slide"
+          animation="fade"
           indicators={true}
           navButtonsAlwaysVisible={false}
+          interval={4500}
         >
           {topstories.map((result, i) => (
             <Item result={result} key={i} />
