@@ -47,34 +47,36 @@ function MostViewed(props) {
               Most Viewed Articles of The Week
             </ListSubheader>
           </GridListTile>
-          {mostviewed.map((result, i) => (
-            <GridListTile key={i} cols={matches ? 1 : 2}>
-              {result.media.length > 0 ? (
-                <img
-                  src={result.media[0]["media-metadata"][2].url}
-                  alt={result.media[0].caption}
-                />
-              ) : null}
-              <GridListTileBar
-                title={result.title}
-                subtitle={<span>{result.byline}</span>}
-                actionIcon={
-                  <IconButton
-                    aria-label={`info about ${result.title}`}
-                    className={classes.icon}
-                  >
-                    <a
-                      href={result.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <InfoIcon />
-                    </a>
-                  </IconButton>
-                }
-              />
-            </GridListTile>
-          ))}
+          {mostviewed.map((result, index) => {
+            if (result.media.length > 0)
+              return (
+                <GridListTile key={index} cols={matches ? 1 : 2}>
+                  <img
+                    src={result.media[0]["media-metadata"][2].url}
+                    alt={result.media[0].caption}
+                  />
+                  <GridListTileBar
+                    title={result.title}
+                    subtitle={<span>{result.byline}</span>}
+                    actionIcon={
+                      <IconButton
+                        aria-label={`info about ${result.title}`}
+                        className={classes.icon}
+                      >
+                        <a
+                          href={result.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <InfoIcon />
+                        </a>
+                      </IconButton>
+                    }
+                  />
+                </GridListTile>
+              );
+            return null;
+          })}
         </GridList>
       </div>
     );
