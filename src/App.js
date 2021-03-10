@@ -65,7 +65,6 @@ class App extends Component {
           guardianArticles: res.response.results,
           guardianArticlesLoaded: true,
         });
-        console.log(res.response.results);
       })
       .catch((err) => console.log(err));
   }
