@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import "./App.css";
 
-/*Material UI Components*/
+/*Custom Components*/
 import MostViewed from "./Components/MostViewed";
 import SearchResults from "./Components/SearchResults";
 import TopStories from "./Components/TopStories";
 import Navbar from "./Components/Navbar";
+
+/*Material UI Components*/
 import Container from "@material-ui/core/Container";
 
 /*New York Times API Endpoints*/
