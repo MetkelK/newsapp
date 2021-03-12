@@ -6,6 +6,7 @@ import MostViewed from "./Components/MostViewed";
 import SearchResults from "./Components/SearchResults";
 import TopStories from "./Components/TopStories";
 import Navbar from "./Components/Navbar";
+import Guardian from "./Components/Guardian";
 
 /*Material UI Components*/
 import Container from "@material-ui/core/Container";

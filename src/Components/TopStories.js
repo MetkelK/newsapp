@@ -16,15 +16,15 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   root: {
-    alignItems: "center",
     display: "flex",
+    alignItems: "center",
     height: "100%",
     justifyContent: "center",
     overflowX: "hidden",
-    width: "90vmin",
+    width: "100%",
   },
   img: {
-    maxHeight: "40vh",
+    maxHeight: "50vh",
     marginBottom: "0.5rem",
   },
   button: {
@@ -42,15 +42,15 @@ function Item(props) {
       <CardActionArea>
         <CardContent>
           <CardMedia
-            classes={{ img: classes.img }}
+            className={classes.img}
             image={props.result.multimedia[0].url}
             title={props.result.multimedia[0].caption}
             component="img"
           />
-          <Typography gutterBottom variant="h6" align="center">
+          <Typography gutterBottom variant="h6" align="left">
             {props.result.title}
           </Typography>
-          <Typography variant="body2" color="textSecondary">
+          <Typography variant="body2" color="textSecondary" align="left">
             {props.result.abstract}
           </Typography>
         </CardContent>
@@ -77,9 +77,9 @@ function TopStories(props) {
         <Carousel
           autoPlay={true}
           animation="fade"
-          indicators={true}
-          navButtonsAlwaysVisible={false}
-          interval={4500}
+          indicators={false}
+          navButtonsAlwaysVisible={true}
+          interval={5500}
         >
           {topstories.map((result, i) => (
             <Item result={result} key={i} />
