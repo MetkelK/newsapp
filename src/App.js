@@ -19,9 +19,6 @@ const NYT_TOPSTORIES_URL =
 const NYT_SEARCH_URL =
   "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=";
 
-// Guardian API Endpoint
-const GUARDIAN = "https://content.guardianapis.com/search?q=world&api-key=";
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -58,15 +55,6 @@ class App extends Component {
         this.setState({
           topStoriesArticles: res.results,
           topStoriesisLoaded: true,
-        });
-      })
-      .catch((err) => console.log(err));
-    fetch(`${GUARDIAN}${process.env.REACT_APP_GUARDIAN_API_KEY}`)
-      .then((res) => res.json())
-      .then((res) => {
-        this.setState({
-          guardianArticles: res.response.results,
-          guardianArticlesLoaded: true,
         });
       })
       .catch((err) => console.log(err));
