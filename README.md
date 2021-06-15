@@ -23,12 +23,18 @@ Follow the instructions to register an account and sign up for an API key.
 
 ```
 git clone https://github.com/MetkelK/newsapp.git
-```
 
 cd newsapp
 
 npm install
+```
 
-#### Add environment variables
+### Add environment variables
 
 In the root folder create a .env file and add the line REACT_APP_API_KEY=Your API Key
+
+### Start local server
+
+```
+npm start
+```
